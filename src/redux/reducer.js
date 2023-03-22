@@ -3,7 +3,6 @@ import { addContact, deleteContact, setFilter } from './actions';
 export const listReducer = (state = 0, action) => {
   switch (action.type) {
     case addContact.type: {
-      console.log(state);
       console.log(action.payload);
       return {
         ...state,
@@ -15,9 +14,10 @@ export const listReducer = (state = 0, action) => {
       console.log(action.payload);
 
       return {
-        // state.contacts.filter(item => item.id !== id),
         ...state,
-        contacts: [state.contacts.filter(item => item.id !== action.payload)],
+        contacts: [
+          state.contacts.filter(item => item.id !== action.payload.id),
+        ],
       };
     }
 

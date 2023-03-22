@@ -9,11 +9,12 @@ export const ContactList = ({ contacts, filter }) => {
   const dispatch = useDispatch();
 
   const onClickToDelete = event => {
+    console.log(event.target.id);
     dispatch(deleteContact(event.target.id));
   };
 
   const newContactList = contacts.map(({ id, name, number }) => {
-    console.log(filter);
+    console.log(id, name, number);
     if (filter.length === 0) {
       return (
         <li key={id} className={style.contactitem}>

@@ -1,8 +1,12 @@
+import { useDispatch } from 'react-redux';
+import { setFilter } from '../../redux/actions.js';
+
 import style from '../style.module.css';
 
-export const Filter = ({ changeFilterInput }) => {
+export const Filter = () => {
+  const dispatch = useDispatch();
   const onChangeFilter = event => {
-    changeFilterInput(event.target.value);
+    dispatch(setFilter(event.target.value));
   };
 
   return (

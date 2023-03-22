@@ -1,9 +1,8 @@
 import { ContactForm } from './contact-form/ContactForm';
 import { ContactList } from './contact-list/ContactList';
 import { Filter } from './filter/Filter';
-import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addContact, deleteContact, setFilter } from '../redux/actions.js';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import style from './style.module.css';
 
@@ -13,26 +12,7 @@ export function App() {
   const contacts = useSelector(state => state.contacts);
   const filter = useSelector(state => state.filter);
 
-  const dispatch = useDispatch();
-
   // console.log(contacts);
-
-  const formSubmitHandler = data => {
-    // setContacts([...contacts, data]);
-    dispatch(addContact(data));
-  };
-
-  const changeFilterInput = value => {
-    // setFilter(event);
-    dispatch(setFilter(value));
-  };
-
-  // const handleDeleteContact = id => {
-  //   // setContacts(contacts.filter(item => item.id !== id));
-  //   console.log(contacts);
-
-  //   dispatch(deleteContact(id));
-  // };
 
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem('localUserContacts'));
@@ -60,11 +40,8 @@ export function App() {
     >
       <div>
         <h1 className={style.title}>Phonebook</h1>
-        <ContactForm
-          formSubmitHandler={formSubmitHandler}
-          contacts={contacts}
-        />
-        <Filter changeFilterInput={changeFilterInput} />
+        <ContactForm contacts={contacts} />
+        <Filter />
       </div>
       <h2 className={style.text}>Contacts</h2>
       <ContactList contacts={contacts} filter={filter} />
