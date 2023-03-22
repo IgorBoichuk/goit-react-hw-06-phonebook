@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { useSelector, useDispatch } from 'react-redux';
-import { addContact, deleteContact, setFilter } from '../../redux/actions.js';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/actions.js';
 
 import style from '../style.module.css';
 
@@ -45,7 +45,6 @@ export function ContactForm(props) {
     if (chackName) {
       alert(`${name} is olready in contacts`);
     } else {
-      // props.formSubmitHandler({ id, name, number });
       dispatch(addContact({ id, name, number }));
       reset();
     }

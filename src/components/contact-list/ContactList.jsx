@@ -1,7 +1,6 @@
 import style from '../style.module.css';
-import { useSelector, useDispatch } from 'react-redux';
-
-import { addContact, deleteContact, setFilter } from '../../redux/actions.js';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/actions.js';
 
 import PropTypes from 'prop-types';
 
