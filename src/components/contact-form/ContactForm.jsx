@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+// import { useSelector, useDispatch } from 'react-redux';
 
 import style from '../style.module.css';
 
@@ -7,6 +8,11 @@ export function ContactForm(props) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [id, setId] = useState('');
+
+  // const dispatch = useDispatch();
+
+  // const contacts = useSelector(state => state.contacts);
+  // console.log(contacts);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
