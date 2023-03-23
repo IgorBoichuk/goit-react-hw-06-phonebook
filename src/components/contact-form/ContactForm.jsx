@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-// import { addContact } from '../../redux/actions.js';
+
 import { addContact } from '../../redux/createSlice.js';
 
 import style from '../style.module.css';
