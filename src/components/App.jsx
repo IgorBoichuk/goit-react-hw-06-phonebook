@@ -1,23 +1,19 @@
 import { ContactForm } from './contact-form/ContactForm';
 import { ContactList } from './contact-list/ContactList';
 import { Filter } from './filter/Filter';
+
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import style from './style.module.css';
 
 export function App() {
-  // const [contacts, setContacts] = useState([]);
-  // const [filter, setFilter] = useState('');
   const contacts = useSelector(state => state.contacts);
   const filter = useSelector(state => state.filter);
-
-  // console.log(contacts);
 
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem('localUserContacts'));
     if (storedTodos) {
-      // setContacts(storedTodos);
     }
   }, []);
 

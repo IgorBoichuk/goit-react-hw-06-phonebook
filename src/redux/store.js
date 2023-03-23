@@ -1,9 +1,7 @@
-import { createStore } from 'redux';
-import { listReducer } from './reducer';
+import { configureStore } from '@reduxjs/toolkit';
+import { contactsReducer } from './createSlice';
 
-export const initialState = {
-  contacts: [],
-  filter: '',
-};
-
-export const store = createStore(listReducer, initialState);
+export const store = configureStore({
+  reducer: contactsReducer,
+  devTools: process.env.NODE_ENV !== 'production',
+});

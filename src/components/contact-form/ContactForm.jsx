@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/actions.js';
+// import { addContact } from '../../redux/actions.js';
+import { addContact } from '../../redux/createSlice.js';
 
 import style from '../style.module.css';
 
@@ -9,11 +10,6 @@ export function ContactForm(props) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [id, setId] = useState('');
-
-  const dispatch = useDispatch();
-
-  // const contacts = useSelector(state => state.contacts);
-  // console.log(contacts);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -32,6 +28,8 @@ export function ContactForm(props) {
         break;
     }
   };
+
+  const dispatch = useDispatch();
 
   const onHandleAddBtn = () => {
     let chackName = false;

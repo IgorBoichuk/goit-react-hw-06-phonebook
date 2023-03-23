@@ -1,6 +1,7 @@
 import style from '../style.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/actions.js';
+// import { deleteContact } from '../../redux/actions.js';
+import { deleteContact } from '../../redux/createSlice';
 
 import PropTypes from 'prop-types';
 
