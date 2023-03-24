@@ -1,6 +1,8 @@
 import { ContactForm } from './contact-form/ContactForm';
 import { ContactList } from './contact-list/ContactList';
 import { Filter } from './filter/Filter';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor } from 'redux/store';
 
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -17,11 +19,11 @@ export function App() {
     }
   }, []);
 
-  useEffect(() => {
-    if (contacts.length > 0) {
-      localStorage.setItem('localUserContacts', JSON.stringify(contacts));
-    }
-  }, [contacts]);
+  // useEffect(() => {
+  //   if (contacts.length > 0) {
+  //     localStorage.setItem('localUserContacts', JSON.stringify(contacts));
+  //   }
+  // }, [contacts]);
 
   return (
     <div
@@ -34,13 +36,15 @@ export function App() {
         color: '#010101',
       }}
     >
-      <div>
-        <h1 className={style.title}>Phonebook</h1>
-        <ContactForm contacts={contacts} />
-        <Filter />
-      </div>
-      <h2 className={style.text}>Contacts</h2>
-      <ContactList contacts={contacts} filter={filter} />
+      <PersistGate loading={null} persistor={persistor}>
+        <div>
+          <h1 className={style.title}>Phonebook</h1>
+          <ContactForm contacts={contacts} />
+          <Filter />
+        </div>
+        <h2 className={style.text}>Contacts</h2>
+        <ContactList contacts={contacts} filter={filter} />
+      </PersistGate>
     </div>
   );
 }
